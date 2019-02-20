@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hip-local-api
+  labels:
+    app: hip-local-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hip-local-api
+  template:
+    metadata:
+      labels:
+        app: hip-local-api
+    spec:
+      containers:
+      - name: hip-local-api
+        image: gcr.io/roi-hip-local/api:v0.4
+        ports:
+        - containerPort: 8085
+          name: "backend-server"
+kind: Service
+metadata: 
+  name: hip-local-api-svc
+spec: 
+  ports: 
+     -  port: 8085
+        protocol: TCP
+        targetPort: 8085
+  selector: 
+    app: hip-local-api
+  type: NodePort
