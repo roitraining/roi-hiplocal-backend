@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hip-local-api
-        image: gcr.io/roi-hip-local/api:v0.4
+        image: gcr.io/roi-hip-local/api:v0.1
         ports:
         - containerPort: 8085
           name: "backend-server"
