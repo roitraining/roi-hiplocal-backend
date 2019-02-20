@@ -20,6 +20,9 @@ spec:
         ports:
         - containerPort: 8085
           name: "backend-server"
+---
+
+apiVersion: v1
 kind: Service
 metadata: 
   name: hip-local-api-svc
