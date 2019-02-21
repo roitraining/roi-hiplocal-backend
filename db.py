@@ -19,8 +19,8 @@ def add_happening(data, id):
     print('adding a new happening' + id + ' to firestore')
     data['date_added'] = datetime.datetime.now()
     data['likes'] = 0
-    happening = HAPPENINGS.document(id).set(data)
-    return happening.id
+    HAPPENINGS.document(id).set(data)
+    return id
 
 def like_happening(id):
     print('user liked happening' + id)
