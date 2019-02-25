@@ -24,7 +24,7 @@ def create_happening(id):
 @app.route("/happening/like/<id>")
 def like(id):
     print('backend service adding like to happening')
-    return db.like_happening(id)
+    return flask.jsonify({ 'likes': db.like_happening(id) }), 201
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8085, debug=True)
