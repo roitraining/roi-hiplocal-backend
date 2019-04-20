@@ -1,5 +1,6 @@
-FROM python:3
+FROM python:3.7
 WORKDIR /usr/src/app
 COPY . .
-RUN pip3 install -r requirements.txt
-CMD [ "python3", "./main.py" ]
+RUN pip install -r requirements.txt
+RUN pip install gunicorn
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 main:app
